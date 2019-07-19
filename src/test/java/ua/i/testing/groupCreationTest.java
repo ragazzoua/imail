@@ -34,7 +34,7 @@ public class groupCreationTest {
     public void emailCreationTest() {
         goToDrafts();
         initEmailCreation();
-        fillEmailForm();
+        fillEmailForm("to@ukr.net", "subject", "text");
         submitEmailCreation();
         goToDrafts();
 
@@ -54,13 +54,13 @@ public class groupCreationTest {
         driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
     }
 
-    private void fillEmailForm() {
+    private void fillEmailForm(String emailAddress, String subject, String emailText) {
         driver.findElement(By.xpath("//textarea[@id='to']")).click();
-        driver.findElement(By.xpath("//textarea[@id='to']")).sendKeys("to@ukr.net");
+        driver.findElement(By.xpath("//textarea[@id='to']")).sendKeys(emailAddress);
         driver.findElement(By.xpath("//input[@name='subject']")).click();
-        driver.findElement(By.xpath("//input[@name='subject']")).sendKeys("subject");
+        driver.findElement(By.xpath("//input[@name='subject']")).sendKeys(subject);
         driver.findElement(By.xpath("//textarea[@id='text']")).click();
-        driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys("text");
+        driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys(emailText);
     }
 
     private void initEmailCreation() {
