@@ -26,10 +26,6 @@ public class groupCreationTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-    }
-
-    @Test
-    public void emailCreationTest() {
         driver.get("https://www.i.ua/");
         driver.findElement(By.name("login")).click();
         driver.findElement(By.name("login")).clear();
@@ -38,6 +34,10 @@ public class groupCreationTest {
         driver.findElement(By.name("pass")).clear();
         driver.findElement(By.name("pass")).sendKeys("337774a");
         driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
+    }
+
+    @Test
+    public void emailCreationTest() {
         driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
         driver.findElement(By.xpath("//p[@class='make_message']/a")).click();
         driver.findElement(By.xpath("//textarea[@id='to']")).click();
