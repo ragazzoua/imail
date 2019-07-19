@@ -30,6 +30,16 @@ public class groupCreationTest {
         login();
     }
 
+    @Test
+    public void emailCreationTest() {
+        goToDrafts();
+        initEmailCreation();
+        fillEmailForm();
+        submitEmailCreation();
+        goToDrafts();
+
+    }
+
     private void login() {
         driver.findElement(By.name("login")).click();
         driver.findElement(By.name("login")).clear();
@@ -40,19 +50,25 @@ public class groupCreationTest {
         driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
     }
 
-    @Test
-    public void emailCreationTest() {
-        driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
-        driver.findElement(By.xpath("//p[@class='make_message']/a")).click();
+    private void submitEmailCreation() {
+        driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
+    }
+
+    private void fillEmailForm() {
         driver.findElement(By.xpath("//textarea[@id='to']")).click();
         driver.findElement(By.xpath("//textarea[@id='to']")).sendKeys("to@ukr.net");
         driver.findElement(By.xpath("//input[@name='subject']")).click();
         driver.findElement(By.xpath("//input[@name='subject']")).sendKeys("subject");
         driver.findElement(By.xpath("//textarea[@id='text']")).click();
         driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys("text");
-        driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
-        driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
+    }
 
+    private void initEmailCreation() {
+        driver.findElement(By.xpath("//p[@class='make_message']/a")).click();
+    }
+
+    private void goToDrafts() {
+        driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
     }
 
     @AfterMethod
