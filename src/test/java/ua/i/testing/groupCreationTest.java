@@ -27,6 +27,10 @@ public class groupCreationTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://www.i.ua/");
+        login();
+    }
+
+    private void login() {
         driver.findElement(By.name("login")).click();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys("ittest2");
