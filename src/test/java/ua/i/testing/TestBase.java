@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * created by FAMILY 21.07.2019
  */
 
-public class TestBase {
+public class TestBase extends ApplicationManager {
     ChromeDriver driver;
 
     public static boolean isAlertPresent(FirefoxDriver driver) {
