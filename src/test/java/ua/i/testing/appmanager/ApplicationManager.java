@@ -13,8 +13,7 @@ import java.util.concurrent.TimeUnit;
  * created by FAMILY 21.07.2019
  */
 
-public class ApplicationManager {
-    ChromeDriver driver;
+public class ApplicationManager  extends NavigationHelper {
 
     private GroupHelper groupHelper;
 
@@ -45,10 +44,6 @@ public class ApplicationManager {
         driver.findElement(By.name("pass")).clear();
         driver.findElement(By.name("pass")).sendKeys(password);
         driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
-    }
-
-    public void goToDrafts() {
-        driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
     }
 
     public void stop() {
