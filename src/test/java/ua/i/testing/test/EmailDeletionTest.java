@@ -1,4 +1,4 @@
-package ua.i.testing;
+package ua.i.testing.test;
 
 import org.testng.annotations.Test;
 

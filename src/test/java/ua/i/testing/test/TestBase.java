@@ -1,7 +1,8 @@
-package ua.i.testing;
+package ua.i.testing.test;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import ua.i.testing.appmanager.ApplicationManager;
 
 /**
  * created by FAMILY 21.07.2019

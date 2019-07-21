@@ -1,4 +1,4 @@
-package ua.i.testing;
+package ua.i.testing.model;
 
 public class EmailData {
     private final String emailAddress;

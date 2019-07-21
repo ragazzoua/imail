@@ -1,6 +1,7 @@
-package ua.i.testing;
+package ua.i.testing.test;
 
 import org.testng.annotations.Test;
+import ua.i.testing.model.EmailData;
 
 /**
  * created by FAMILY 18.07.2019

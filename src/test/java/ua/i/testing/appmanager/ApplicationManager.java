@@ -1,4 +1,4 @@
-package ua.i.testing;
+package ua.i.testing.appmanager;
 
 import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ua.i.testing.model.EmailData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +26,7 @@ public class ApplicationManager {
         }
     }
 
-    protected void init() {
+    public void init() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -44,11 +45,11 @@ public class ApplicationManager {
         driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
     }
 
-    protected void submitEmailCreation() {
+    public void submitEmailCreation() {
         driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
     }
 
-    protected void fillEmailForm(EmailData emailData) {
+    public void fillEmailForm(EmailData emailData) {
         driver.findElement(By.xpath("//textarea[@id='to']")).click();
         driver.findElement(By.xpath("//textarea[@id='to']")).sendKeys(emailData.getEmailAddress());
         driver.findElement(By.xpath("//input[@name='subject']")).click();
@@ -57,23 +58,23 @@ public class ApplicationManager {
         driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys(emailData.getEmailText());
     }
 
-    protected void initEmailCreation() {
+    public void initEmailCreation() {
         driver.findElement(By.xpath("//p[@class='make_message']/a")).click();
     }
 
-    protected void goToDrafts() {
+    public void goToDrafts() {
         driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
     }
 
-    protected void stop() {
+    public void stop() {
         driver.quit();
     }
 
-    protected void deleteSelectedEmails() {
+    public void deleteSelectedEmails() {
         driver.findElement(By.xpath("//div[@id='fieldset1']//span[@class='button l_r del']")).click();
     }
 
-    protected void selectEmail() {
+    public void selectEmail() {
         driver.findElement(By.xpath("//form[@name='aform']//input[@type='checkbox']")).click();
     }
 
