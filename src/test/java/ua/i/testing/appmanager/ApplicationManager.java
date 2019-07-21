@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     ChromeDriver driver;
 
+    private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
 
@@ -36,18 +37,11 @@ public class ApplicationManager {
         driver.get("https://www.i.ua/");
         groupHelper = new GroupHelper(driver);
         navigationHelper = new NavigationHelper(driver);
-        login("ittest2", "337774a");
+        sessionHelper = new SessionHelper(driver);
+        sessionHelper.login("ittest2", "337774a");
     }
 
-    private void login(String username, String password) {
-        driver.findElement(By.name("login")).click();
-        driver.findElement(By.name("login")).clear();
-        driver.findElement(By.name("login")).sendKeys(username);
-        driver.findElement(By.name("pass")).click();
-        driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
-    }
+
 
     public void stop() {
         driver.quit();
