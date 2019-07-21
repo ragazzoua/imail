@@ -10,11 +10,11 @@ public class EmailDeletionTest extends TestBase {
 
     @Test
     public void emailDeletionTest(){
-        app.goToDrafts();
+        app.getNavigationHelper().goToDrafts();
         app.getGroupHelper().selectEmail();
         app.getGroupHelper().deleteSelectedEmails();
         app.acceptAlert();
-        app.goToDrafts();
+        app.getNavigationHelper().goToDrafts();
 
     }
 
