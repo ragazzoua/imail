@@ -9,7 +9,11 @@ import ua.i.testing.model.EmailData;
  */
 
 public class GroupHelper {
+    ChromeDriver driver;
 
+    public GroupHelper(ChromeDriver driver) {
+        this.driver = driver;
+    }
 
     public void submitEmailCreation() {
         driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
