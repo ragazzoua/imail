@@ -14,8 +14,9 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class ApplicationManager {
+    ChromeDriver driver;
 
-    private final GroupHelper groupHelper = new GroupHelper();
+    private final GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver driver) {
         try {
@@ -28,33 +29,34 @@ public class ApplicationManager {
 
     public void init() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-        groupHelper.driver = new ChromeDriver();
-        groupHelper.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        groupHelper.driver.manage().window().maximize();
-        groupHelper.driver.get("https://www.i.ua/");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get("https://www.i.ua/");
+        groupHelper = new GroupHelper(driver);
         login("ittest2", "337774a");
     }
 
     private void login(String username, String password) {
-        groupHelper.driver.findElement(By.name("login")).click();
-        groupHelper.driver.findElement(By.name("login")).clear();
-        groupHelper.driver.findElement(By.name("login")).sendKeys(username);
-        groupHelper.driver.findElement(By.name("pass")).click();
-        groupHelper.driver.findElement(By.name("pass")).clear();
-        groupHelper.driver.findElement(By.name("pass")).sendKeys(password);
-        groupHelper.driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
+        driver.findElement(By.name("login")).click();
+        driver.findElement(By.name("login")).clear();
+        driver.findElement(By.name("login")).sendKeys(username);
+        driver.findElement(By.name("pass")).click();
+        driver.findElement(By.name("pass")).clear();
+        driver.findElement(By.name("pass")).sendKeys(password);
+        driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
     }
 
     public void goToDrafts() {
-        groupHelper.driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
+        driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
     }
 
     public void stop() {
-        groupHelper.driver.quit();
+        driver.quit();
     }
 
     public void acceptAlert(){
-        groupHelper.driver.switchTo().alert().accept();
+        driver.switchTo().alert().accept();
     }
 
     public GroupHelper getGroupHelper() {
