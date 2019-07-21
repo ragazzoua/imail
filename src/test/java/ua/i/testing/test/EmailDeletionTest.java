@@ -11,8 +11,8 @@ public class EmailDeletionTest extends TestBase {
     @Test
     public void emailDeletionTest(){
         app.goToDrafts();
-        app.selectEmail();
-        app.deleteSelectedEmails();
+        app.getGroupHelper().selectEmail();
+        app.getGroupHelper().deleteSelectedEmails();
         app.acceptAlert();
         app.goToDrafts();
 

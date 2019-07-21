@@ -12,9 +12,9 @@ public class EmailCreationTest extends TestBase {
     @Test
     public void emailCreationTest() {
         app.goToDrafts();
-        app.initEmailCreation();
-        app.fillEmailForm(new EmailData("to@ukr.net", "subject", "text"));
-        app.submitEmailCreation();
+        app.getGroupHelper().initEmailCreation();
+        app.getGroupHelper().fillEmailForm(new EmailData("to@ukr.net", "subject", "text"));
+        app.getGroupHelper().submitEmailCreation();
         app.goToDrafts();
 
     }
