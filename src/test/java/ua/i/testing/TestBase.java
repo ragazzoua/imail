@@ -72,4 +72,16 @@ public class TestBase {
     public void tearDown() {
         driver.quit();
     }
+
+    protected void deleteSelectedEmails() {
+        driver.findElement(By.xpath("//div[@id='fieldset1']//span[@class='button l_r del']")).click();
+    }
+
+    protected void selectEmail() {
+        driver.findElement(By.xpath("//form[@name='aform']//input[@type='checkbox']")).click();
+    }
+
+    public void acceptAlert(){
+        driver.switchTo().alert().accept();
+    }
 }
