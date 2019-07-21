@@ -10,11 +10,11 @@ public class EmailCreationTest extends TestBase {
 
     @Test
     public void emailCreationTest() {
-        goToDrafts();
-        initEmailCreation();
-        fillEmailForm(new EmailData("to@ukr.net", "subject", "text"));
-        submitEmailCreation();
-        goToDrafts();
+        app.goToDrafts();
+        app.initEmailCreation();
+        app.fillEmailForm(new EmailData("to@ukr.net", "subject", "text"));
+        app.submitEmailCreation();
+        app.goToDrafts();
 
     }
 

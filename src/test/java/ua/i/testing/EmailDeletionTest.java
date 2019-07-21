@@ -10,11 +10,11 @@ public class EmailDeletionTest extends TestBase {
 
     @Test
     public void emailDeletionTest(){
-        goToDrafts();
-        selectEmail();
-        deleteSelectedEmails();
-        acceptAlert();
-        goToDrafts();
+        app.goToDrafts();
+        app.selectEmail();
+        app.deleteSelectedEmails();
+        app.acceptAlert();
+        app.goToDrafts();
 
     }
 
