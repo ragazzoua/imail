@@ -29,6 +29,10 @@ public class TestBase {
 
     @BeforeMethod
     public void setup() throws Exception {
+        init();
+    }
+
+    private void init() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

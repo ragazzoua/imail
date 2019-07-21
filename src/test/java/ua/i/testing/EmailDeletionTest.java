@@ -1,6 +1,5 @@
 package ua.i.testing;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 /**
