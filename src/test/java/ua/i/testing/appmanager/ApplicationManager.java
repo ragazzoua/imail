@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ua.i.testing.model.EmailData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +13,7 @@ import java.util.concurrent.TimeUnit;
  * created by FAMILY 21.07.2019
  */
 
-public class ApplicationManager {
-    ChromeDriver driver;
+public class ApplicationManager extends GroupHelper {
 
     public static boolean isAlertPresent(FirefoxDriver driver) {
         try {
@@ -45,37 +43,12 @@ public class ApplicationManager {
         driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
     }
 
-    public void submitEmailCreation() {
-        driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
-    }
-
-    public void fillEmailForm(EmailData emailData) {
-        driver.findElement(By.xpath("//textarea[@id='to']")).click();
-        driver.findElement(By.xpath("//textarea[@id='to']")).sendKeys(emailData.getEmailAddress());
-        driver.findElement(By.xpath("//input[@name='subject']")).click();
-        driver.findElement(By.xpath("//input[@name='subject']")).sendKeys(emailData.getSubject());
-        driver.findElement(By.xpath("//textarea[@id='text']")).click();
-        driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys(emailData.getEmailText());
-    }
-
-    public void initEmailCreation() {
-        driver.findElement(By.xpath("//p[@class='make_message']/a")).click();
-    }
-
     public void goToDrafts() {
         driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
     }
 
     public void stop() {
         driver.quit();
-    }
-
-    public void deleteSelectedEmails() {
-        driver.findElement(By.xpath("//div[@id='fieldset1']//span[@class='button l_r del']")).click();
-    }
-
-    public void selectEmail() {
-        driver.findElement(By.xpath("//form[@name='aform']//input[@type='checkbox']")).click();
     }
 
     public void acceptAlert(){
