@@ -14,8 +14,9 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class ApplicationManager {
+    ChromeDriver driver;
 
-    private final NavigationHelper navigationHelper = new NavigationHelper();
+    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver driver) {
@@ -29,30 +30,31 @@ public class ApplicationManager {
 
     public void init() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-        navigationHelper.driver = new ChromeDriver();
-        navigationHelper.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        navigationHelper.driver.manage().window().maximize();
-        navigationHelper.driver.get("https://www.i.ua/");
-        groupHelper = new GroupHelper(navigationHelper.driver);
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get("https://www.i.ua/");
+        groupHelper = new GroupHelper(driver);
+        navigationHelper = new NavigationHelper(driver);
         login("ittest2", "337774a");
     }
 
     private void login(String username, String password) {
-        navigationHelper.driver.findElement(By.name("login")).click();
-        navigationHelper.driver.findElement(By.name("login")).clear();
-        navigationHelper.driver.findElement(By.name("login")).sendKeys(username);
-        navigationHelper.driver.findElement(By.name("pass")).click();
-        navigationHelper.driver.findElement(By.name("pass")).clear();
-        navigationHelper.driver.findElement(By.name("pass")).sendKeys(password);
-        navigationHelper.driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
+        driver.findElement(By.name("login")).click();
+        driver.findElement(By.name("login")).clear();
+        driver.findElement(By.name("login")).sendKeys(username);
+        driver.findElement(By.name("pass")).click();
+        driver.findElement(By.name("pass")).clear();
+        driver.findElement(By.name("pass")).sendKeys(password);
+        driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
     }
 
     public void stop() {
-        navigationHelper.driver.quit();
+        driver.quit();
     }
 
     public void acceptAlert() {
-        navigationHelper.driver.switchTo().alert().accept();
+        driver.switchTo().alert().accept();
     }
 
     public GroupHelper getGroupHelper() {

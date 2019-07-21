@@ -8,7 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 
 public class NavigationHelper {
-    ChromeDriver driver;
+    private ChromeDriver driver;
+
+    public NavigationHelper(ChromeDriver driver) {
+        this.driver = driver;
+    }
 
     public void goToDrafts() {
         driver.findElement(By.xpath("//ul[@class='list_underlined']/li[3]/a")).click();
