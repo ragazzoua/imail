@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     ChromeDriver driver;
 
-    private final GroupHelper groupHelper;
+    private GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver driver) {
         try {
@@ -55,7 +55,7 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    public void acceptAlert(){
+    public void acceptAlert() {
         driver.switchTo().alert().accept();
     }
 

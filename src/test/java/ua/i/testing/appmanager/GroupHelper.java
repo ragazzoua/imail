@@ -9,7 +9,7 @@ import ua.i.testing.model.EmailData;
  */
 
 public class GroupHelper {
-    ChromeDriver driver;
+    private ChromeDriver driver;
 
     public GroupHelper(ChromeDriver driver) {
         this.driver = driver;
