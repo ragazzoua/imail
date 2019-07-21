@@ -74,6 +74,10 @@ public class TestBase {
 
     @AfterMethod
     public void tearDown() {
+        stop();
+    }
+
+    private void stop() {
         driver.quit();
     }
 
