@@ -16,11 +16,11 @@ public class GroupHelper {
     }
 
     public void submitEmailCreation() {
-        click();
+        click(By.xpath("//input[@name='save_in_drafts']"));
     }
 
-    private void click() {
-        driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
+    private void click(By locator) {
+        driver.findElement(locator).click();
     }
 
     public void fillEmailForm(EmailData emailData) {
@@ -30,19 +30,19 @@ public class GroupHelper {
     }
 
     private void type(By locator, String text) {
-        driver.findElement(locator).click();
+        click(locator);
         driver.findElement(locator).sendKeys(text);
     }
 
     public void initEmailCreation() {
-        driver.findElement(By.xpath("//p[@class='make_message']/a")).click();
+        click(By.xpath("//p[@class='make_message']/a"));
     }
 
     public void deleteSelectedEmails() {
-        driver.findElement(By.xpath("//div[@id='fieldset1']//span[@class='button l_r del']")).click();
+        click(By.xpath("//div[@id='fieldset1']//span[@class='button l_r del']"));
     }
 
     public void selectEmail() {
-        driver.findElement(By.xpath("//form[@name='aform']//input[@type='checkbox']")).click();
+        click(By.xpath("//form[@name='aform']//input[@type='checkbox']"));
     }
 }
