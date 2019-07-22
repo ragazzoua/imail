@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 
 public class SessionHelper extends HelperBase {
-    ChromeDriver driver;
+
 
     public SessionHelper(ChromeDriver driver) {
         super(driver);
@@ -16,12 +16,8 @@ public class SessionHelper extends HelperBase {
     }
 
     public void login(String username, String password) {
-        driver.findElement(By.name("login")).click();
-        driver.findElement(By.name("login")).clear();
-        driver.findElement(By.name("login")).sendKeys(username);
-        driver.findElement(By.name("pass")).click();
-        driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@type='submit' and @value='Войти']")).click();
+        type(By.name("login"), username);
+        type(By.name("pass"), password);
+        click(By.xpath("//input[@type='submit' and @value='Войти']"));
     }
 }
