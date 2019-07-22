@@ -21,10 +21,8 @@ public class GroupHelper {
 
     public void fillEmailForm(EmailData emailData) {
         type(By.xpath("//textarea[@id='to']"), emailData.getEmailAddress());
-        driver.findElement(By.xpath("//input[@name='subject']")).click();
-        driver.findElement(By.xpath("//input[@name='subject']")).sendKeys(emailData.getSubject());
-        driver.findElement(By.xpath("//textarea[@id='text']")).click();
-        driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys(emailData.getEmailText());
+        type(By.xpath("//input[@name='subject']"), emailData.getSubject());
+        type(By.xpath("//textarea[@id='text']"), emailData.getEmailText());
     }
 
     private void type(By locator, String text) {
