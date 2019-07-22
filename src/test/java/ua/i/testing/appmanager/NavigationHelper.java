@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 
 public class NavigationHelper extends HelperBase{
-    private ChromeDriver driver;
+
 
     public NavigationHelper(ChromeDriver driver) {
         super(driver);

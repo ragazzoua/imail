@@ -20,14 +20,7 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
 
-    public static boolean isAlertPresent(FirefoxDriver driver) {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
+
 
     public void init() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
