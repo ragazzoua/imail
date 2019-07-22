@@ -25,7 +25,7 @@ public class HelperBase {
         driver.findElement(locator).sendKeys(text);
     }
 
-    public static boolean isAlertPresent(FirefoxDriver driver) {
+    public boolean isAlertPresent() {
         try {
             driver.switchTo().alert();
             return true;
