@@ -16,6 +16,10 @@ public class GroupHelper {
     }
 
     public void submitEmailCreation() {
+        click();
+    }
+
+    private void click() {
         driver.findElement(By.xpath("//input[@name='save_in_drafts']")).click();
     }
 
