@@ -9,29 +9,19 @@ import ua.i.testing.model.EmailData;
  */
 
 public class GroupHelper extends HelperBase {
-    private ChromeDriver driver;
 
     public GroupHelper(ChromeDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void submitEmailCreation() {
         click(By.xpath("//input[@name='save_in_drafts']"));
     }
 
-    private void click(By locator) {
-        driver.findElement(locator).click();
-    }
-
     public void fillEmailForm(EmailData emailData) {
         type(By.xpath("//textarea[@id='to']"), emailData.getEmailAddress());
         type(By.xpath("//input[@name='subject']"), emailData.getSubject());
         type(By.xpath("//textarea[@id='text']"), emailData.getEmailText());
-    }
-
-    private void type(By locator, String text) {
-        click(locator);
-        driver.findElement(locator).sendKeys(text);
     }
 
     public void initEmailCreation() {
