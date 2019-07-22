@@ -8,7 +8,7 @@ import ua.i.testing.model.EmailData;
  * created by FAMILY 21.07.2019
  */
 
-public class GroupHelper {
+public class GroupHelper extends HelperBase {
     private ChromeDriver driver;
 
     public GroupHelper(ChromeDriver driver) {
