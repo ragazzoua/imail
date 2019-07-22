@@ -20,16 +20,16 @@ public class GroupHelper {
     }
 
     public void fillEmailForm(EmailData emailData) {
-        type(emailData, By.xpath("//textarea[@id='to']"));
+        type(By.xpath("//textarea[@id='to']"), emailData.getEmailAddress());
         driver.findElement(By.xpath("//input[@name='subject']")).click();
         driver.findElement(By.xpath("//input[@name='subject']")).sendKeys(emailData.getSubject());
         driver.findElement(By.xpath("//textarea[@id='text']")).click();
         driver.findElement(By.xpath("//textarea[@id='text']")).sendKeys(emailData.getEmailText());
     }
 
-    private void type(EmailData emailData, By locator) {
+    private void type(By locator, String text) {
         driver.findElement(locator).click();
-        driver.findElement(locator).sendKeys(emailData.getEmailAddress());
+        driver.findElement(locator).sendKeys(text);
     }
 
     public void initEmailCreation() {
