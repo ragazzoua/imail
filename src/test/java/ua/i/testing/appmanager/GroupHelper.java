@@ -37,6 +37,6 @@ public class GroupHelper extends HelperBase {
     }
 
     public void initEmailModification() {
-        click(By.xpath("//span[@class='frm']"));
+        click(By.xpath("//div[@class='row new']"));
     }
 }
