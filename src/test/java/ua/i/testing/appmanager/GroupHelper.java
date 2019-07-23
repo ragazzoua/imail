@@ -35,4 +35,8 @@ public class GroupHelper extends HelperBase {
     public void selectEmail() {
         click(By.xpath("//form[@name='aform']//input[@type='checkbox']"));
     }
+
+    public void initEmailModification() {
+        click(By.xpath("//span[@class='frm']"));
+    }
 }
