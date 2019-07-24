@@ -30,14 +30,13 @@ public class ApplicationManager {
 
 
     public void init() {
-        String browser = BrowserType.FIREFOX;
         if (browser == BrowserType.FIREFOX) {
             WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
             driver = new FirefoxDriver();
         } else if (browser == BrowserType.CHROME) {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
             driver = new ChromeDriver();
-        } else if (browser ==BrowserType.IE) {
+        } else if (browser == BrowserType.IE) {
             WebDriverManager.getInstance(DriverManagerType.IEXPLORER).setup();
             driver = new InternetExplorerDriver();
         }
