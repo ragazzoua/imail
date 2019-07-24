@@ -1,7 +1,7 @@
 package ua.i.testing.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 /**
  * created by FAMILY 21.07.2019
@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SessionHelper extends HelperBase {
 
 
-    public SessionHelper(ChromeDriver driver) {
+    public SessionHelper(WebDriver driver) {
         super(driver);
 
     }

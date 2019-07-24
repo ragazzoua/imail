@@ -2,6 +2,7 @@ package ua.i.testing.appmanager;
 
 import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -16,7 +17,7 @@ import static org.openqa.selenium.remote.BrowserType.IE;
  */
 
 public class ApplicationManager {
-    ChromeDriver driver;
+    WebDriver driver;
 
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
@@ -31,7 +32,7 @@ public class ApplicationManager {
         } else if (browser == BrowserType.CHROME) {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
             driver = new ChromeDriver();
-        } else (browser ==BrowserType.IE){
+        } else if (browser ==BrowserType.IE) {
             WebDriverManager.getInstance(DriverManagerType.IEXPLORER).setup();
             driver = new InternetExplorerDriver();
         }

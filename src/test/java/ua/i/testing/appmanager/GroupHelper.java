@@ -1,6 +1,7 @@
 package ua.i.testing.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ua.i.testing.model.EmailData;
 
@@ -10,7 +11,7 @@ import ua.i.testing.model.EmailData;
 
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(ChromeDriver driver) {
+    public GroupHelper(WebDriver driver) {
         super(driver);
     }
 
