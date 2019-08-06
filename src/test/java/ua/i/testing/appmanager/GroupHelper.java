@@ -42,4 +42,14 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//div[@class='row new']"));
     }
 
+    public void returnToDrafts() {
+        click(By.xpath("//ul[@class='list_underlined']/li[3]/a"));
+    }
+
+    public void createDraft(EmailData draft) {
+        initEmailCreation();
+        fillEmailForm(new EmailData("to@ukr.net", null, "text"));
+        submitEmailCreation();
+        returnToDrafts();
+    }
 }
