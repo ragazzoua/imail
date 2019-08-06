@@ -12,11 +12,11 @@ public class EmailModificationTest extends TestBase {
     @Test
     public void emailModificationTest() {
         app.getNavigationHelper().goToDrafts();
-        if (!app.getGroupHelper().isThereGroup()){
+        if (!app.getGroupHelper().isThereDraft()){
             app.getGroupHelper().createDraft(new EmailData("to@ukr.net", null, "text"));
         }
         app.getGroupHelper().initEmailModification();
-        app.getGroupHelper().fillEmailForm(new EmailData("to@ukr.net", "subject", "text"));
+        app.getGroupHelper().fillEmailForm(new EmailData("to1@ukr.net", "subject", "text1"));
         app.getGroupHelper().submitEmailCreation();
         app.getNavigationHelper().goToDrafts();
     }

@@ -48,8 +48,12 @@ public class GroupHelper extends HelperBase {
 
     public void createDraft(EmailData draft) {
         initEmailCreation();
-        fillEmailForm(new EmailData("to@ukr.net", null, "text"));
+        fillEmailForm(draft);
         submitEmailCreation();
         returnToDrafts();
+    }
+
+    public boolean isThereDraft() {
+        return iselementPresent(By.xpath("//form[@name='aform']//input[@type='checkbox']"));
     }
 }
