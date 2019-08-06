@@ -42,12 +42,4 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//div[@class='row new']"));
     }
 
-    public boolean iselementPresent(By locator) {
-        try {
-            driver.findElement(locator);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 }
