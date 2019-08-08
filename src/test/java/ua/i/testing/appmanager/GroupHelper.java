@@ -56,4 +56,8 @@ public class GroupHelper extends HelperBase {
     public boolean isThereDraft() {
         return iselementPresent(By.xpath("//form[@name='aform']//input[@type='checkbox']"));
     }
+
+    public int getGroupCount() {
+        return driver.findElements(By.xpath("//form[@name='aform']//div[@class='row new']//input[@type='checkbox']")).size();
+    }
 }
