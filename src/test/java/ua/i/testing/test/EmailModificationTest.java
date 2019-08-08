@@ -17,7 +17,7 @@ public class EmailModificationTest extends TestBase {
         if (!app.getGroupHelper().isThereDraft()){
             app.getGroupHelper().createDraft(new EmailData("to@ukr.net", null, "text"));
         }
-        app.getGroupHelper().initEmailModification();
+        app.getGroupHelper().initEmailModification(before-1);
         app.getGroupHelper().fillEmailForm(new EmailData("to1@ukr.net", "subject", "text1"));
         app.getGroupHelper().submitEmailCreation();
         app.getNavigationHelper().goToDrafts();

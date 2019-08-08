@@ -38,8 +38,8 @@ public class GroupHelper extends HelperBase {
         driver.findElements(By.xpath("//form[@name='aform']//input[@type='checkbox']")).get(index).click();
     }
 
-    public void initEmailModification() {
-        click(By.xpath("//div[@class='row new']"));
+    public void initEmailModification(int index) {
+        driver.findElements(By.xpath("//div[@class='row new']")).get(index).click();
     }
 
     public void returnToDrafts() {
