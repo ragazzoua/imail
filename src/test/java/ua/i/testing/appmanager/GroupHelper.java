@@ -34,8 +34,8 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//div[@id='fieldset1']//span[@class='button l_r del']"));
     }
 
-    public void selectEmail() {
-        click(By.xpath("//form[@name='aform']//input[@type='checkbox']"));
+    public void selectEmail(int index) {
+        driver.findElements(By.xpath("//form[@name='aform']//input[@type='checkbox']")).get(index).click();
     }
 
     public void initEmailModification() {

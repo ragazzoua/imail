@@ -17,7 +17,7 @@ public class EmailDeletionTest extends TestBase {
         if (!app.getGroupHelper().isThereDraft()) {
             app.getGroupHelper().createDraft(new EmailData("to@ukr.net", null, "text"));
         }
-        app.getGroupHelper().selectEmail();
+        app.getGroupHelper().selectEmail(before - 1);
         app.getGroupHelper().deleteSelectedEmails();
         app.acceptAlert();
         app.getNavigationHelper().goToDrafts();
