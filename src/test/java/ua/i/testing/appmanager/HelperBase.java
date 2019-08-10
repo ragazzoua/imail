@@ -43,7 +43,7 @@ public class HelperBase {
         }
     }
 
-    public boolean iselementPresent(By locator) {
+    public boolean isElementPresent(By locator) {
         try {
             driver.findElement(locator);
             return true;
