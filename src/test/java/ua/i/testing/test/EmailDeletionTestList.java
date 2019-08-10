@@ -4,11 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.i.testing.model.EmailData;
 
+import java.util.List;
+
 /**
  * created by FAMILY 21.07.2019
  */
 
-public class EmailDeletionTest extends TestBase {
+public class EmailDeletionTestList extends TestBase {
 
     @Test
     public void emailDeletionTest() {
@@ -16,13 +18,13 @@ public class EmailDeletionTest extends TestBase {
         if (!app.getGroupHelper().isThereDraft()) {
             app.getGroupHelper().createDraft(new EmailData("to@ukr.net", null, "text"));
         }
-        int before = app.getGroupHelper().getGroupCount();
-        app.getGroupHelper().selectEmail(before - 1);
+        List<EmailData> before = app.getGroupHelper().getGroupList();
+        app.getGroupHelper().selectEmail(before.size() - 1);
         app.getGroupHelper().deleteSelectedEmails();
         app.acceptAlert();
         app.getNavigationHelper().goToDrafts();
-        int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after, before - 1);
+        List<EmailData> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size() - 1);
 
     }
 
