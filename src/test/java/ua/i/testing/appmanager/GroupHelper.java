@@ -2,7 +2,11 @@ package ua.i.testing.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ua.i.testing.model.EmailData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * created by FAMILY 21.07.2019
@@ -57,5 +61,17 @@ public class GroupHelper extends HelperBase {
 
     public int getGroupCount() {
         return driver.findElements(By.xpath("//form[@name='aform']//div[@class='row new']//input[@type='checkbox']")).size();
+    }
+
+    public List<EmailData> getGroupList() {
+        List<EmailData> emails = new ArrayList<>();
+        List<WebElement> elements = driver.findElements(By.xpath("//div[@class='row new']"));
+        for (WebElement element: elements){
+            String name = element.getText();
+            EmailData emailData = new EmailData(name,null,null);
+            emails.add(emailData);
+
+        }
+        return emails;
     }
 }
