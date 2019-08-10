@@ -1,5 +1,7 @@
 package ua.i.testing.model;
 
+import java.util.Objects;
+
 public class EmailData {
     private final String emailAddress;
     private final String subject;
@@ -21,5 +23,26 @@ public class EmailData {
 
     public String getEmailText() {
         return emailText;
+    }
+
+    @Override
+    public String toString() {
+        return "EmailData{" +
+                "emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmailData emailData = (EmailData) o;
+        return Objects.equals(emailAddress, emailData.emailAddress);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(emailAddress);
     }
 }
