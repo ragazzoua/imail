@@ -65,7 +65,7 @@ public class GroupHelper extends HelperBase {
 
     public List<EmailData> getGroupList() {
         List<EmailData> emails = new ArrayList<>();
-        List<WebElement> elements = driver.findElements(By.xpath("//div[@class='row new']"));
+        List<WebElement> elements = driver.findElements(By.xpath("//span[@class='frm']"));
         for (WebElement element: elements){
             String name = element.getText();
             EmailData emailData = new EmailData(name,null,null);
