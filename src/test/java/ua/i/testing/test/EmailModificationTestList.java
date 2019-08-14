@@ -22,7 +22,7 @@ public class EmailModificationTestList extends TestBase {
         List<EmailData> before= app.getGroupHelper().getGroupList();
         app.getGroupHelper().initEmailModification(before.size() - 1);
 
-        EmailData data = new EmailData("to1@ukr.net", null, null);
+        EmailData data = new EmailData("to2@ukr.net", null, null);
 
         app.getGroupHelper().fillEmailForm(data);
         app.getGroupHelper().submitEmailCreation();
