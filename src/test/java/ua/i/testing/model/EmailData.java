@@ -8,6 +8,13 @@ public class EmailData {
     private final String subject;
     private final String emailText;
 
+    public EmailData(String emailAddress, String subject, String emailText) {
+        this.id = null;
+        this.emailAddress = emailAddress;
+        this.subject = subject;
+        this.emailText = emailText;
+    }
+
     public EmailData(String id, String emailAddress, String subject, String emailText) {
         this.id = id;
         this.emailAddress = emailAddress;
