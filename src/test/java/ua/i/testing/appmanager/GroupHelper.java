@@ -68,8 +68,8 @@ public class GroupHelper extends HelperBase {
         List<WebElement> elements = driver.findElements(By.xpath("//span[@class='frm']"));
         for (WebElement element: elements){
             String name = element.getText();
-            String id = element.findElement(By.tagName("input")).getAttribute("value");
-            EmailData emailData = new EmailData(id, name,null,null);
+            //String id = element.findElement(By.tagName("input")).getAttribute("value");
+            EmailData emailData = new EmailData(name,null,null);
             emails.add(emailData);
 
         }
