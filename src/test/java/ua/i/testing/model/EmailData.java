@@ -3,7 +3,7 @@ package ua.i.testing.model;
 import java.util.Objects;
 
 public class EmailData {
-    private final String id;
+    private  String id;
     private final String emailAddress;
     private final String subject;
     private final String emailText;
@@ -59,6 +59,10 @@ public class EmailData {
                 "id='" + id + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }
