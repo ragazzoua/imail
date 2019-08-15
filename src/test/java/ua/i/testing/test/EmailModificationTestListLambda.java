@@ -12,7 +12,7 @@ import java.util.*;
 
 public class EmailModificationTestListLambda extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void emailModificationTest() {
         app.getNavigationHelper().goToDrafts();
         if (!app.getGroupHelper().isThereDraft()) {

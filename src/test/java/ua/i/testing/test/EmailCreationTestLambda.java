@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EmailCreationTestLambda extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void emailCreationTest() {
         app.getNavigationHelper().goToDrafts();
         List<EmailData> before = app.getGroupHelper().getGroupList();
