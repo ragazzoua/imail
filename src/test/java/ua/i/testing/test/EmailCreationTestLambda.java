@@ -21,16 +21,7 @@ public class EmailCreationTestLambda extends TestBase {
         app.getGroupHelper().createDraft(emailData);
         List<EmailData> after = app.getGroupHelper().getGroupList();
 
-        int max = 0;
-        for (EmailData data: after){
-            if (data.getId().equals(String.valueOf(max)))
-            max = Integer.parseInt(data.getId());
-        }
-
-        Comparator<? super EmailData> byId = (o1, o2) -> Integer.compare(Integer.parseInt(o1.getId()), Integer.parseInt(o2.getId()));
-        int max1 = Integer.parseInt(after.stream().max(byId).get().getId());
-
-        emailData.setId(String.valueOf(max1));
+        emailData.setId(String.valueOf(Integer.parseInt(after.stream().max((o1, o2) -> Integer.compare(Integer.parseInt(o1.getId()), Integer.parseInt(o2.getId()))).get().getId())));
         before.add(emailData);
 
         Assert.assertEquals(after.size(), before.size() + 1);
