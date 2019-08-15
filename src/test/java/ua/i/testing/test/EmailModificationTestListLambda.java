@@ -33,6 +33,7 @@ public class EmailModificationTestListLambda extends TestBase {
         before.add(data);
         Comparator<? super EmailData> byId = (g1, g2) -> Integer.compare(Integer.parseInt(g1.getId()), Integer.parseInt(g2.getId()));
         before.sort(byId);
-        Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
+        after.sort(byId);
+        Assert.assertEquals(before, after);
     }
 }
