@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.i.testing.model.EmailData;
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -25,7 +26,16 @@ public class EmailCreationTestLambda extends TestBase {
             if (data.getId().equals(String.valueOf(max)))
             max = Integer.parseInt(data.getId());
         }
-        emailData.setId(String.valueOf(max));
+
+        Comparator<? super EmailData> byId = new Comparator<EmailData>() {
+            @Override
+            public int compare(EmailData o1, EmailData o2) {
+                return Integer.compare(Integer.parseInt(o1.getId()), Integer.parseInt(o2.getId()));
+            }
+        };
+        int max1 = Integer.parseInt(after.stream().max(byId).get().getId());
+
+        emailData.setId(String.valueOf(max1));
         before.add(emailData);
 
         Assert.assertEquals(after.size(), before.size() + 1);
