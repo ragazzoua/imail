@@ -27,12 +27,7 @@ public class EmailCreationTestLambda extends TestBase {
             max = Integer.parseInt(data.getId());
         }
 
-        Comparator<? super EmailData> byId = new Comparator<EmailData>() {
-            @Override
-            public int compare(EmailData o1, EmailData o2) {
-                return Integer.compare(Integer.parseInt(o1.getId()), Integer.parseInt(o2.getId()));
-            }
-        };
+        Comparator<? super EmailData> byId = (o1, o2) -> Integer.compare(Integer.parseInt(o1.getId()), Integer.parseInt(o2.getId()));
         int max1 = Integer.parseInt(after.stream().max(byId).get().getId());
 
         emailData.setId(String.valueOf(max1));
