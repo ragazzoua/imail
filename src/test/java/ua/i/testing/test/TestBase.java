@@ -11,7 +11,7 @@ import ua.i.testing.appmanager.ApplicationManager;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 /*
 BeforeMethod запускается перед каждым тестовым методом
 BeforeClass запускается один раз перед всеми тестовыми методами
