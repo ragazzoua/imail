@@ -12,7 +12,13 @@ import ua.i.testing.appmanager.ApplicationManager;
 public class TestBase {
 
     protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+/*
+BeforeMethod запускается перед каждым тестовым методом
+BeforeClass запускается один раз перед всеми тестовыми методами
+BeforeGroups запускается перед тестами которые входят в одну группу
+BeforeSuite сьют всегда один а тестов может быть несколько используется для конф файла
 
+    */
     @BeforeMethod
     public void setup() throws Exception {
         app.init();
