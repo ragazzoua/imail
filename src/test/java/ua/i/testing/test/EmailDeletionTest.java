@@ -14,7 +14,7 @@ public class EmailDeletionTest extends TestBase {
     public void emailDeletionTest() {
         app.goTo().drafts();
         if (!app.group().isThereDraft()) {
-            app.group().create(new EmailData("to@ukr.net", null, "text"));
+            app.group().create(new EmailData().withEmailAddress("sdfsfffdf@ukr.net").withEmailText("dsfsdf"));
         }
         int before = app.group().getGroupCount();
         app.group().selectEmail(before - 1);

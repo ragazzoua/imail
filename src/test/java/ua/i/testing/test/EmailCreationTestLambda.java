@@ -17,7 +17,7 @@ public class EmailCreationTestLambda extends TestBase {
     public void emailCreationTest() {
         app.goTo().drafts();
         List<EmailData> before = app.group().list();
-        EmailData emailData = new EmailData("to@ukr.net", null, "text");
+        EmailData emailData = new EmailData().withEmailAddress("sdfsdf@ukr.net").withEmailText("dsfsdf");
         app.group().create(emailData);
         List<EmailData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size() + 1);

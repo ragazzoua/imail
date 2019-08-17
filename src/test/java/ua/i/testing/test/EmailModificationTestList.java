@@ -17,12 +17,12 @@ public class EmailModificationTestList extends TestBase {
     public void emailModificationTest() {
         app.goTo().drafts();
         if (!app.group().isThereDraft()) {
-            app.group().create(new EmailData("to0000@ukr.net", null, null));
+            app.group().create(new EmailData().withEmailAddress("sdfsdf@ukr.net").withEmailText(null));
         }
         List<EmailData> before= app.group().list();
         app.group().initEmailModification(before.size() - 1);
 
-        EmailData data = new EmailData(before.get(before.size() -1).getId(),"to2@ukr.net", null, null);
+        EmailData data = new EmailData().withId(before.get(before.size() -1).getId()).withEmailAddress("to2@ukr.net");
 
         app.group().fillEmailForm(data);
         app.group().submitEmailCreation();

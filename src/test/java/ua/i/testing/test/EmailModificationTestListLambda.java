@@ -18,7 +18,7 @@ public class EmailModificationTestListLambda extends TestBase {
     public void ensurePreconditions() {
         app.goTo().drafts();
         if (app.group().list().size() == 0) {
-            app.group().create(new EmailData("to0000@ukr.net", null, null));
+            app.group().create(new EmailData().withEmailAddress("fsfsdf@ukr.net"));
         }
     }
 
@@ -26,7 +26,7 @@ public class EmailModificationTestListLambda extends TestBase {
     public void emailModificationTest() {
         List<EmailData> before = app.group().list();
         int index = before.size() - 1;
-        EmailData data = new EmailData(before.get(index).getId(), "to2@ukr.net", null, null);
+        EmailData data = new EmailData().withId(before.get(before.size() -1).getId()).withEmailAddress("to2@ukr.net");
         app.group().modify(index, data);
         List<EmailData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size());

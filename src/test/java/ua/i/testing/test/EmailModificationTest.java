@@ -14,11 +14,11 @@ public class EmailModificationTest extends TestBase {
     public void emailModificationTest() {
         app.goTo().drafts();
         if (!app.group().isThereDraft()) {
-            app.group().create(new EmailData("to@ukr.net", null, "text"));
+            app.group().create(new EmailData().withEmailAddress("sdfsdf@ukr.net").withEmailText("dsfsdf"));
         }
         int before = app.group().getGroupCount();
         app.group().initEmailModification(before - 1);
-        app.group().fillEmailForm(new EmailData("to1@ukr.net", "subject", "text1"));
+        app.group().fillEmailForm(new EmailData().withEmailAddress("sdfsdf@ukr.net").withEmailText("dsfsdf"));
         app.group().submitEmailCreation();
         app.goTo().drafts();
         int after = app.group().getGroupCount();

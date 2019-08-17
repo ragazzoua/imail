@@ -16,7 +16,7 @@ public class EmailCreationTest extends TestBase {
     public void emailCreationTest() {
         app.goTo().drafts();
         List<EmailData> before = app.group().list();
-        EmailData emailData = new EmailData("to@ukr.net", null, "text");
+        EmailData emailData = new EmailData().withEmailAddress("dfsad@ukr.net");
         app.group().create(emailData);
         List<EmailData> after = app.group().list();
 
