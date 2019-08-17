@@ -3,24 +3,12 @@ package ua.i.testing.model;
 import java.util.Objects;
 
 public class EmailData {
-    private  String id;
-    private final String emailAddress;
-    private final String subject;
-    private final String emailText;
+    private String id = null;
+    private String emailAddress;
+    private String subject;
+    private String emailText;
 
-    public EmailData(String emailAddress, String subject, String emailText) {
-        this.id = null;
-        this.emailAddress = emailAddress;
-        this.subject = subject;
-        this.emailText = emailText;
-    }
 
-    public EmailData(String id, String emailAddress, String subject, String emailText) {
-        this.id = id;
-        this.emailAddress = emailAddress;
-        this.subject = subject;
-        this.emailText = emailText;
-    }
 
     public String getId() {
         return id;
@@ -36,6 +24,26 @@ public class EmailData {
 
     public String getEmailText() {
         return emailText;
+    }
+
+    public EmailData withEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+        return this;
+    }
+
+    public EmailData withSubject(String subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    public EmailData withEmailText(String emailText) {
+        this.emailText = emailText;
+        return this;
+    }
+
+    public EmailData withId(String id) {
+        this.id = id;
+        return this;
     }
 
     @Override
@@ -61,8 +69,5 @@ public class EmailData {
                 '}';
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
 }
