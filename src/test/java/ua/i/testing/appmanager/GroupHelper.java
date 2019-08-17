@@ -75,4 +75,11 @@ public class GroupHelper extends HelperBase {
         }
         return emails;
     }
+
+    public void modifyGroup(int index, EmailData data) {
+        initEmailModification(index);
+        fillEmailForm(data);
+        submitEmailCreation();
+        returnToDrafts();
+    }
 }

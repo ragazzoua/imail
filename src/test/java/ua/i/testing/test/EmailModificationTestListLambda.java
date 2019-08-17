@@ -1,6 +1,7 @@
 package ua.i.testing.test;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.i.testing.model.EmailData;
 
@@ -12,17 +13,21 @@ import java.util.*;
 
 public class EmailModificationTestListLambda extends TestBase {
 
-    @Test(enabled = false)
-    public void emailModificationTest() {
+
+    @BeforeMethod
+    public void ensurePreconditions() {
         app.getNavigationHelper().goToDrafts();
         if (!app.getGroupHelper().isThereDraft()) {
             app.getGroupHelper().createDraft(new EmailData("to0000@ukr.net", null, null));
         }
+    }
+
+    @Test(enabled = false)
+    public void emailModificationTest() {
         List<EmailData> before = app.getGroupHelper().getGroupList();
         int index = before.size() - 1;
         EmailData data = new EmailData(before.get(index).getId(), "to2@ukr.net", null, null);
-
-        modifyGroup(index, data);
+        app.getGroupHelper().modifyGroup(index, data);
         List<EmailData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size());
 
@@ -34,10 +39,5 @@ public class EmailModificationTestListLambda extends TestBase {
         Assert.assertEquals(before, after);
     }
 
-    private void modifyGroup(int index, EmailData data) {
-        app.getGroupHelper().initEmailModification(index);
-        app.getGroupHelper().fillEmailForm(data);
-        app.getGroupHelper().submitEmailCreation();
-        app.getNavigationHelper().goToDrafts();
-    }
+
 }

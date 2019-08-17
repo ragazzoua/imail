@@ -1,6 +1,7 @@
 package ua.i.testing.test;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ua.i.testing.model.EmailData;
 
@@ -12,12 +13,16 @@ import java.util.List;
 
 public class EmailDeletionTestList extends TestBase {
 
-    @Test
-    public void emailDeletionTest() {
+    @BeforeMethod
+    public void ensurePreconditions() {
         app.getNavigationHelper().goToDrafts();
         if (!app.getGroupHelper().isThereDraft()) {
-            app.getGroupHelper().createDraft(new EmailData("to@ukr.net", null, "text"));
+            app.getGroupHelper().createDraft(new EmailData("to0000@ukr.net", null, null));
         }
+    }
+
+    @Test
+    public void emailDeletionTest() {
         List<EmailData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().selectEmail(before.size() - 1);
         app.getGroupHelper().deleteSelectedEmails();
@@ -26,9 +31,9 @@ public class EmailDeletionTestList extends TestBase {
         List<EmailData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size()-1);
+        before.remove(before.size() - 1);
 
-            Assert.assertEquals(before, after);
+        Assert.assertEquals(before, after);
 
 
     }
