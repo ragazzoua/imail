@@ -2,7 +2,9 @@ package ua.i.testing.test;
 
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import ua.i.testing.appmanager.ApplicationManager;
 
 /**
@@ -16,15 +18,16 @@ public class TestBase {
 BeforeMethod запускается перед каждым тестовым методом
 BeforeClass запускается один раз перед всеми тестовыми методами
 BeforeGroups запускается перед тестами которые входят в одну группу
-BeforeSuite сьют всегда один а тестов может быть несколько используется для конф файла
+BeforeSuite сьют всегда один а тестов может быть несколько используется для конф файла / запускает один екземпляр браузера
+
 
     */
-    @BeforeMethod
+    @BeforeSuite
     public void setup() throws Exception {
         app.init();
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         app.stop();
     }
