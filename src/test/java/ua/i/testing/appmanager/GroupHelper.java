@@ -69,7 +69,7 @@ public class GroupHelper extends HelperBase {
         for (WebElement element: elements){
             String name = element.getText();
             String id = element.findElement(By.xpath("//span[@class='frm']/../..//input")).getAttribute("value");
-            EmailData emailData = new EmailData(id,name,null,null);
+            EmailData emailData = new EmailData().withId(id).withSubject(name);
             emails.add(emailData);
 
         }
