@@ -16,19 +16,19 @@ public class EmailModificationTestListLambda extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.getNavigationHelper().goToDrafts();
-        if (!app.getGroupHelper().isThereDraft()) {
-            app.getGroupHelper().createDraft(new EmailData("to0000@ukr.net", null, null));
+        app.goTo().drafts();
+        if (app.group().list().size() == 0) {
+            app.group().create(new EmailData("to0000@ukr.net", null, null));
         }
     }
 
     @Test(enabled = false)
     public void emailModificationTest() {
-        List<EmailData> before = app.getGroupHelper().getGroupList();
+        List<EmailData> before = app.group().list();
         int index = before.size() - 1;
         EmailData data = new EmailData(before.get(index).getId(), "to2@ukr.net", null, null);
-        app.getGroupHelper().modifyGroup(index, data);
-        List<EmailData> after = app.getGroupHelper().getGroupList();
+        app.group().modify(index, data);
+        List<EmailData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size());
 
         before.remove(index);

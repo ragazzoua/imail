@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.i.testing.model.EmailData;
 
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -15,11 +14,11 @@ public class EmailCreationTest extends TestBase {
 
     @Test
     public void emailCreationTest() {
-        app.getNavigationHelper().goToDrafts();
-        List<EmailData> before = app.getGroupHelper().getGroupList();
+        app.goTo().drafts();
+        List<EmailData> before = app.group().list();
         EmailData emailData = new EmailData("to@ukr.net", null, "text");
-        app.getGroupHelper().createDraft(emailData);
-        List<EmailData> after = app.getGroupHelper().getGroupList();
+        app.group().create(emailData);
+        List<EmailData> after = app.group().list();
 
         Assert.assertEquals(after.size(), before.size() + 1);
 

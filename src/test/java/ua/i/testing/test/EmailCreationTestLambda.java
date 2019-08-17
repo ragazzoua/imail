@@ -15,11 +15,11 @@ public class EmailCreationTestLambda extends TestBase {
 
     @Test(enabled = false)
     public void emailCreationTest() {
-        app.getNavigationHelper().goToDrafts();
-        List<EmailData> before = app.getGroupHelper().getGroupList();
+        app.goTo().drafts();
+        List<EmailData> before = app.group().list();
         EmailData emailData = new EmailData("to@ukr.net", null, "text");
-        app.getGroupHelper().createDraft(emailData);
-        List<EmailData> after = app.getGroupHelper().getGroupList();
+        app.group().create(emailData);
+        List<EmailData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size() + 1);
 
         emailData.setId(String.valueOf(Integer.parseInt(after.stream().max((o1, o2) -> Integer.compare(Integer.parseInt(o1.getId()), Integer.parseInt(o2.getId()))).get().getId())));

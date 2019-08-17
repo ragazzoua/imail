@@ -16,7 +16,7 @@ public class NavigationHelper extends HelperBase{
 
     }
 
-    public void goToDrafts() {
+    public void drafts() {
         click(By.xpath("//ul[@class='list_underlined']/li[3]/a"));
     }
 }

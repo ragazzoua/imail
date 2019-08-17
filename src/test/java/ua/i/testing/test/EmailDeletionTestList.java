@@ -15,20 +15,20 @@ public class EmailDeletionTestList extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.getNavigationHelper().goToDrafts();
-        if (!app.getGroupHelper().isThereDraft()) {
-            app.getGroupHelper().createDraft(new EmailData("to0000@ukr.net", null, null));
+        app.goTo().drafts();
+        if (!app.group().isThereDraft()) {
+            app.group().create(new EmailData("to0000@ukr.net", null, null));
         }
     }
 
     @Test
     public void emailDeletionTest() {
-        List<EmailData> before = app.getGroupHelper().getGroupList();
-        app.getGroupHelper().selectEmail(before.size() - 1);
-        app.getGroupHelper().deleteSelectedEmails();
+        List<EmailData> before = app.group().list();
+        app.group().selectEmail(before.size() - 1);
+        app.group().deleteSelectedEmails();
         app.acceptAlert();
-        app.getNavigationHelper().goToDrafts();
-        List<EmailData> after = app.getGroupHelper().getGroupList();
+        app.goTo().drafts();
+        List<EmailData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size() - 1);
 
         before.remove(before.size() - 1);

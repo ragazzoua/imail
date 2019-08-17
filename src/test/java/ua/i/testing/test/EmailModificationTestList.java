@@ -15,19 +15,19 @@ public class EmailModificationTestList extends TestBase {
 
     @Test
     public void emailModificationTest() {
-        app.getNavigationHelper().goToDrafts();
-        if (!app.getGroupHelper().isThereDraft()) {
-            app.getGroupHelper().createDraft(new EmailData("to0000@ukr.net", null, null));
+        app.goTo().drafts();
+        if (!app.group().isThereDraft()) {
+            app.group().create(new EmailData("to0000@ukr.net", null, null));
         }
-        List<EmailData> before= app.getGroupHelper().getGroupList();
-        app.getGroupHelper().initEmailModification(before.size() - 1);
+        List<EmailData> before= app.group().list();
+        app.group().initEmailModification(before.size() - 1);
 
         EmailData data = new EmailData(before.get(before.size() -1).getId(),"to2@ukr.net", null, null);
 
-        app.getGroupHelper().fillEmailForm(data);
-        app.getGroupHelper().submitEmailCreation();
-        app.getNavigationHelper().goToDrafts();
-        List<EmailData> after= app.getGroupHelper().getGroupList();
+        app.group().fillEmailForm(data);
+        app.group().submitEmailCreation();
+        app.goTo().drafts();
+        List<EmailData> after= app.group().list();
         Assert.assertEquals(after.size(), before.size());
 
         before.remove(before.size()-1);

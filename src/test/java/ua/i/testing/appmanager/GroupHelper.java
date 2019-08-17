@@ -48,7 +48,7 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//ul[@class='list_underlined']/li[3]/a"));
     }
 
-    public void createDraft(EmailData draft) {
+    public void create(EmailData draft) {
         initEmailCreation();
         fillEmailForm(draft);
         submitEmailCreation();
@@ -63,7 +63,7 @@ public class GroupHelper extends HelperBase {
         return driver.findElements(By.xpath("//form[@name='aform']//div[@class='row new']//input[@type='checkbox']")).size();
     }
 
-    public List<EmailData> getGroupList() {
+    public List<EmailData> list() {
         List<EmailData> emails = new ArrayList<>();
         List<WebElement> elements = driver.findElements(By.xpath("//span[@class='frm']"));
         for (WebElement element: elements){
@@ -76,7 +76,7 @@ public class GroupHelper extends HelperBase {
         return emails;
     }
 
-    public void modifyGroup(int index, EmailData data) {
+    public void modify(int index, EmailData data) {
         initEmailModification(index);
         fillEmailForm(data);
         submitEmailCreation();

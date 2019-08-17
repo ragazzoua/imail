@@ -12,16 +12,16 @@ public class EmailDeletionTest extends TestBase {
 
     @Test
     public void emailDeletionTest() {
-        app.getNavigationHelper().goToDrafts();
-        if (!app.getGroupHelper().isThereDraft()) {
-            app.getGroupHelper().createDraft(new EmailData("to@ukr.net", null, "text"));
+        app.goTo().drafts();
+        if (!app.group().isThereDraft()) {
+            app.group().create(new EmailData("to@ukr.net", null, "text"));
         }
-        int before = app.getGroupHelper().getGroupCount();
-        app.getGroupHelper().selectEmail(before - 1);
-        app.getGroupHelper().deleteSelectedEmails();
+        int before = app.group().getGroupCount();
+        app.group().selectEmail(before - 1);
+        app.group().deleteSelectedEmails();
         app.acceptAlert();
-        app.getNavigationHelper().goToDrafts();
-        int after = app.getGroupHelper().getGroupCount();
+        app.goTo().drafts();
+        int after = app.group().getGroupCount();
         Assert.assertEquals(after, before - 1);
 
     }
