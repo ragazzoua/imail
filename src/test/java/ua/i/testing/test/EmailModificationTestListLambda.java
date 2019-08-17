@@ -38,6 +38,6 @@ public class EmailModificationTestListLambda extends TestBase {
         after.sort(byId);
         Assert.assertEquals(before, after);
     }
-
+//Шаблон Билдер завершено рефакторинг
 
 }
